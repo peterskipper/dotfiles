@@ -1,0 +1,5 @@
+set editing-mode vi
+
+set keymap vi-command
+# append ALWAYS appends to end of line
+a: "A"
