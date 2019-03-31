@@ -1,37 +1,20 @@
-set nocompatible              " required
-filetype off                  " required
+call plug#begin('~/.vim/plugged')
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+Plug 'vim-scripts/indentpython.vim'
+Plug 'ambv/black'
+" Plug 'davidhalter/jedi-vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'vim-airline/vim-airline'
 
-" alternatively, pass a path where Vundle should install plugins
-" call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-
-Plugin 'vim-scripts/indentpython.vim'
-" Plugin 'scrooloose/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'tpope/vim-commentary'
-Plugin 'davidhalter/jedi-vim'
-" Plugin 'ervandew/supertab'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" Key remap for code commenting/uncommenting
-vmap c I#<Esc><Esc>
-vmap C x<Esc><Esc>
-" vmap c :'<,'>s/^/# /<CR>
+call plug#end()
 
 set encoding=utf-8
-" set mouse=nicr " Enable scrolling w mouse, even in tmux
-" set clipboard=unnamed " Allow copy/paste with tmux and vim
+
+" Remap Window Keys
+nnoremap <C-Left> <C-w>h
+nnoremap <C-Down> <C-w>j
+nnoremap <C-Up> <C-w>k
+nnoremap <C-Right> <C-w>l
 
 " Color coding
 let python_highlight_all=1
@@ -39,8 +22,8 @@ syntax on
 
 " Basic Config Stuff
 set number    " Show line numbers
-" set linebreak    " Break lines at word (requires Wrap lines)
-" set showbreak=+++    " Wrap-broken line prefix
+set linebreak    " Break lines at word (requires Wrap lines)
+set showbreak=+++    " Wrap-broken line prefix
 set showmatch    " Highlight matching brace
  
 set hlsearch    " Highlight all search results
@@ -55,7 +38,11 @@ set smarttab    " Enable smart-tabs
 set softtabstop=4    " Number of spaces per Tab
 set backspace=indent,eol,start
  
+set tags=tags
+
 " Advanced
 set ruler    " Show row and column ruler information
  
 set undolevels=1000    " Number of undo levels
+
+autocmd BufWritePre *.py execute ':Black'
