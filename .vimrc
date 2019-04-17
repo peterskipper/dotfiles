@@ -7,6 +7,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'vim-airline/vim-airline'
 
 call plug#end()
+" Remember to :PlugInstall when you first use or change plugins
 
 set encoding=utf-8
 
