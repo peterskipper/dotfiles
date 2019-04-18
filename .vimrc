@@ -2,12 +2,19 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-scripts/indentpython.vim'
 Plug 'ambv/black'
-" Plug 'davidhalter/jedi-vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'vim-airline/vim-airline'
+Plug 'davidhalter/jedi-vim'
+Plug 'ervandew/supertab'
 
 call plug#end()
 " Remember to :PlugInstall when you first use or change plugins
+
+" Autocomplete settings for jedi-vim/supertab to play nicely
+" let g:SuperTabDefaultCompletionType = "context"
+" If the above doesn't work, try:
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+
 
 set encoding=utf-8
 
