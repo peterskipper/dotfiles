@@ -79,45 +79,27 @@ bindkey -v
 
 # ALIASES
 # For a full list of active aliases, run `alias`.
+# typos
 alias whcih=which
 
-
-# MINICONDA
-# added by Miniconda3 4.5.12 installer
-# >>> conda init >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$(CONDA_REPORT_ERRORS=false '/Users/PSkip/miniconda3/bin/conda' shell.bash hook 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    \eval "$__conda_setup"
-else
-    if [ -f "/Users/PSkip/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/PSkip/miniconda3/etc/profile.d/conda.sh"
-        CONDA_CHANGEPS1=false conda activate base
-    else
-        \export PATH="/Users/PSkip/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda init <<<
-# added by Miniconda3 4.5.12 installer
-# >>> conda init >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$(CONDA_REPORT_ERRORS=false '/Users/PSkip/miniconda3/bin/conda' shell.bash hook 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    \eval "$__conda_setup"
-else
-    if [ -f "/Users/PSkip/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/PSkip/miniconda3/etc/profile.d/conda.sh"
-        CONDA_CHANGEPS1=false conda activate base
-    else
-        \export PATH="/Users/PSkip/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda init <<<
+# use brew installed programs over Mac defaults
+alias ctags="`brew --prefix`/bin/ctags"
+alias python="`brew --prefix`/bin/python3"
+alias pip="`brew --prefix`/bin/pip3"
+alias vim="`brew --prefix`/bin/vim"
 
 
 # PATH EDITS
 
-# Hack to use homebrew's vim which has python3 support
-PATH=/usr/local/Cellar/vim/8.1.1150/bin:$PATH
+# Use homebrew's vim which has python3 support
+# And Homebrew's Python (brew install python) 
+# Ruthless hack: remember you renamed `python3` to `python`
+# and `pip3` to `pip` in /usr/local/Cellar/python/3.7.3/bin
+# PATH=/usr/local/Cellar/vim/8.1.1150/bin:$PATH
+# PATH=/usr/local/Cellar/python/3.7.3/bin:$PATH
+
+# VIRTUALENV EDITS
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/workspace
+export VIRTUALENVWRAPPER_PYTHON="`brew --prefix`/bin/python3"
+source /usr/local/bin/virtualenvwrapper.sh
