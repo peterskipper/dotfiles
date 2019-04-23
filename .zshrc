@@ -4,7 +4,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/PSkip/.oh-my-zsh"
+export ZSH="/Users/pskipper/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -83,6 +83,7 @@ bindkey -v
 alias whcih=which
 
 # use brew installed programs over Mac defaults
+export PATH=/usr/local/bin:$PATH
 alias ctags="`brew --prefix`/bin/ctags"
 alias python="`brew --prefix`/bin/python3"
 alias pip="`brew --prefix`/bin/pip3"
@@ -99,6 +100,8 @@ alias vim="`brew --prefix`/bin/vim"
 # PATH=/usr/local/Cellar/python/3.7.3/bin:$PATH
 
 # VIRTUALENV EDITS
+# Before this will work, need pip working, then:
+# pip install virtualenv virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/workspace
 export VIRTUALENVWRAPPER_PYTHON="`brew --prefix`/bin/python3"

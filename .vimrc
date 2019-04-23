@@ -1,3 +1,5 @@
+" Install plugin manager vim-plug
+" https://github.com/junegunn/vim-plug#unix
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-scripts/indentpython.vim'
