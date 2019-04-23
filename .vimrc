@@ -46,7 +46,9 @@ set smarttab    " Enable smart-tabs
 set softtabstop=4    " Number of spaces per Tab
 set backspace=indent,eol,start
  
-set tags=tags
+" Shortcut to create python tags in virtualenv
+map <C-P>t :!/usr/local/bin/ctags -R `python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"`<CR>
+" set tags=tags
 
 " Advanced
 set ruler    " Show row and column ruler information
