@@ -4,7 +4,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/pskipper/.oh-my-zsh"
+export ZSH="/Users/pskip/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -64,6 +64,8 @@ source $ZSH/oh-my-zsh.sh
 
 # vi editor settings in terminal
 bindkey -v
+# Reverse search
+bindkey '^R' history-incremental-search-backward
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -82,27 +84,14 @@ bindkey -v
 # typos
 alias whcih=which
 
-# use brew installed programs over Mac defaults
-export PATH=/usr/local/bin:$PATH
-alias ctags="`brew --prefix`/bin/ctags"
-alias python="`brew --prefix`/bin/python3"
-alias pip="`brew --prefix`/bin/pip3"
-alias vim="`brew --prefix`/bin/vim"
-
-
 # PATH EDITS
+# export PATH=/usr/local/bin:$PATH
 
-# Use homebrew's vim which has python3 support
-# And Homebrew's Python (brew install python) 
-# Ruthless hack: remember you renamed `python3` to `python`
-# and `pip3` to `pip` in /usr/local/Cellar/python/3.7.3/bin
-# PATH=/usr/local/Cellar/vim/8.1.1150/bin:$PATH
-# PATH=/usr/local/Cellar/python/3.7.3/bin:$PATH
+# PERSONAL SCRIPTS
+if [[ -f ~/.scripts ]]; then
+    echo "Sourcing ~/.scripts"
+    source ~/.scripts
+    echo "To enable venvs, run command 'ready_virtualenvs'"
+    echo "To enable pyenv, run command 'ready_pyenv'"
+fi
 
-# VIRTUALENV EDITS
-# Before this will work, need pip working, then:
-# pip install virtualenv virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/workspace
-export VIRTUALENVWRAPPER_PYTHON="`brew --prefix`/bin/python3"
-source /usr/local/bin/virtualenvwrapper.sh
